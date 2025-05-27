@@ -12,7 +12,7 @@ export default function RootLayout({
         <>
             <MenuWrapper />
             <div className={ styles.mainWrapper }>
-                {children}
+                { children }
             </div>
         </>
     );
