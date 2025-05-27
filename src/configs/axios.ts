@@ -10,7 +10,7 @@ $api.interceptors.response.use(
     (error) => {
         if (error.response?.status === 401) {
             if (!window.location.href.includes('/auth')) {
-                window.location.href = '/auth/signin';
+                window.location.href = '/auth/sign-in';
             }
         }
         return Promise.reject(error);
