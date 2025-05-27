@@ -23,10 +23,24 @@
             gap: 10px;
 
             .avatar {
+                position: relative;
+
                 .avatarImage {
                     border-radius: 50%;
                     width: 250px;
                     height: 250px;
+                }
+                
+                .changeAvatarIcon {
+                    position: absolute;
+                    top: 180px;
+                    left: 200px;
+                    font-size: 50px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: rgb(66, 138, 240);
+                    }
                 }
             }
 
