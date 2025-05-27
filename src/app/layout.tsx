@@ -1,6 +1,5 @@
 "use client";
 import { Provider } from "react-redux";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { getUserData } from "@/models/user/model";
 import StyledComponentsRegistry from "@/partials/antd-registry/antd-registry";
@@ -13,15 +12,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
 
-    const router = useRouter();
-
     useEffect(() => {
         getUserData()
         .then(res => {
             userStore.dispatch({ type: "SET_USER", payload: res.data.user });
         })
         .catch(error => {
-            router.push("/auth/sign-in");
             console.error(error);
         })
     }, []);
