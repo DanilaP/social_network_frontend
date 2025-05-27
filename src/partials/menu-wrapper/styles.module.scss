@@ -1,0 +1,40 @@
+.menu {
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(66, 138, 240);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    box-sizing: border-box;
+    gap: 20px;
+    z-index: 10;
+    
+    .fixedItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        right: 50px;
+        position: absolute;
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    .icon {
+        font-size: 20px;
+    }
+}
