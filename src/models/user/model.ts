@@ -1,3 +1,4 @@
+import { IPost } from "../posts/model";
 import $api from "@/configs/axios"
 
 export interface IUser {
@@ -8,7 +9,7 @@ export interface IUser {
     status: string,
     role: string,
     friends: string[],
-    posts: any[],
+    posts: IPost[],
     dialogs: string[]
 }
 

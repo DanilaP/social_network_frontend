@@ -1,5 +1,5 @@
 "use client";
-import MenuWrapper from "@/partials/menu-wrapper/menu-wrapper";
+import MenuWrapper from "@/components/menu-wrapper/menu-wrapper";
 import styles from './styles.module.scss';
 
 export default function RootLayout({

@@ -7,6 +7,7 @@ import { MdEdit } from "react-icons/md";
 import { useSelector } from 'react-redux';
 import { UserStore } from '@/stores/user-store';
 import { BsPostcard } from "react-icons/bs";
+import { IPost } from '@/models/posts/model';
 import React, { useEffect, useState } from 'react';
 import styles from "./styles.module.scss";
 import $api from '@/configs/axios';
@@ -18,7 +19,7 @@ const ProfileWrapper = (props: {
     user: IUser 
 }) => {
 
-    const [posts, setPosts] = useState();
+    const [posts, setPosts] = useState<IPost[]>();
     const [statusEditorOpen, setStatusEditorOpen] = useState<boolean>(false);
     const [postsCreatorOpen, setPostsCreatorOpen] = useState<boolean>(false);
     const [status, setStatus] = useState<string>(props.user.status);

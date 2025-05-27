@@ -1,6 +1,6 @@
 import { IUser } from '@/models/user/model';
 import { fetchWithAuth } from '@/middleware/fetch-api';
-import UsersList from '@/partials/users-list/users-list';
+import UsersList from '@/components/users-list-components/users-list/users-list';
 
 async function fetchUsersData() {
     const users: Partial<IUser>[] = await fetchWithAuth(

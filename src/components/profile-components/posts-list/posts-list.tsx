@@ -4,11 +4,13 @@ import { FaComment } from "react-icons/fa";
 import { BsPostcard } from "react-icons/bs";
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import { useState } from "react";
-import Carousel from '../carousel/carousel';
+import { IPost } from "@/models/posts/model";
 import styles from './styles.module.scss';
 import $api from "@/configs/axios";
+import Carousel from "@/components/carousel/carousel";
 
-const PostsList = (props: { posts: any[]  }) => {
+
+const PostsList = (props: { posts: IPost[]  }) => {
 
     const [updatedPosts, setUpdatedPosts] = useState(props.posts);
 

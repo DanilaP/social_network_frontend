@@ -2,7 +2,7 @@
 import { Provider } from "react-redux";
 import { useEffect } from "react";
 import { getUserData } from "@/models/user/model";
-import StyledComponentsRegistry from "@/partials/antd-registry/antd-registry";
+import StyledComponentsRegistry from "@/components/antd-registry/antd-registry";
 import userStore from "@/stores/user-store";
 import "./globals.css";
 
