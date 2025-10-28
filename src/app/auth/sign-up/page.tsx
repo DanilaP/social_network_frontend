@@ -49,6 +49,7 @@ function SignUp() {
                 autoComplete="off"
             >   
                 <FormItem
+                    className={styles.blackLabel}
                     name="name"
                     label="Имя"
                     required={false}
@@ -61,6 +62,7 @@ function SignUp() {
                     <Input placeholder="Введите имя" />
                 </FormItem>
                 <FormItem
+                    className={styles.blackLabel}
                     name="email"
                     label="Логин"
                     required={false}
@@ -73,6 +75,7 @@ function SignUp() {
                     <Input placeholder="Введите логин" />
                 </FormItem>
                 <FormItem
+                    className={styles.blackLabel}
                     name="password"
                     label="Пароль"
                     required={false}

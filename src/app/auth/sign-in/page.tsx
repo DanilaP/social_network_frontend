@@ -48,6 +48,7 @@ function SignIn() {
                 autoComplete="off"
             >
                 <FormItem
+                    className={styles.blackLabel}
                     name="email"
                     label="Логин"
                     required={false}
@@ -60,6 +61,7 @@ function SignIn() {
                     <Input className='form-input' placeholder="Введите логин" />
                 </FormItem>
                 <FormItem
+                    className={styles.blackLabel}
                     name="password"
                     label="Пароль"
                     required={false}
