@@ -36,12 +36,11 @@ function SignIn() {
     };
 
     return (
-        <div className="signin-form-container">
-            <div className="title">
+        <div className={styles.signinFormContainer}>
+            <div className={styles.title}>
                 Авторизация
             </div>
             <Form
-                className="signin-form"
                 form={form}
                 layout="vertical"
                 onFinish={onFinish}
@@ -75,13 +74,12 @@ function SignIn() {
                     }]}
                 >
                     <Input.Password
-                        className='form-input'
                         placeholder="Введите пароль"
                         visibilityToggle={{ visible: passVisible, onVisibleChange: setPassVisible }}
                     />
                 </FormItem>
-                <FormItem className='form-submit'>
-                    <Button className='form-submit-btn' type="primary" htmlType="submit">
+                <FormItem>
+                    <Button type="primary" htmlType="submit">
                         Войти
                     </Button>
                 </FormItem>

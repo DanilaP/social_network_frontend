@@ -37,12 +37,11 @@ function SignUp() {
     };
 
     return (
-        <div className="signin-form-container">
-            <div className="title">
+        <div className={styles.signinFormContainer}>
+            <div className={styles.title}>
                 Регистрация
             </div>
             <Form
-                className="signin-form"
                 form={form}
                 layout="vertical"
                 onFinish={onFinish}
@@ -59,7 +58,7 @@ function SignUp() {
                         message: "Это обязательное поле"
                     }]}
                 >
-                    <Input className='form-input' placeholder="Введите имя" />
+                    <Input placeholder="Введите имя" />
                 </FormItem>
                 <FormItem
                     name="email"
@@ -71,7 +70,7 @@ function SignUp() {
                         message: "Это обязательное поле"
                     }]}
                 >
-                    <Input className='form-input' placeholder="Введите логин" />
+                    <Input placeholder="Введите логин" />
                 </FormItem>
                 <FormItem
                     name="password"
@@ -93,8 +92,8 @@ function SignUp() {
                         visibilityToggle={{ visible: passVisible, onVisibleChange: setPassVisible }}
                     />
                 </FormItem>
-                <FormItem className='form-submit'>
-                    <Button className='form-submit-btn' type="primary" htmlType="submit">
+                <FormItem >
+                    <Button type="primary" htmlType="submit">
                         Войти
                     </Button>
                 </FormItem>

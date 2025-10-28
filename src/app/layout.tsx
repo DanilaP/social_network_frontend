@@ -2,8 +2,10 @@
 import { Provider } from "react-redux";
 import { useEffect } from "react";
 import { getUserData } from "@/models/user/model";
+import { ConfigProvider } from "antd";
 import StyledComponentsRegistry from "@/components/antd-registry/antd-registry";
 import userStore from "@/stores/user-store";
+import ruRu from 'antd/locale/ru_RU';
 import "./globals.css";
 
 export default function RootLayout({
@@ -25,11 +27,20 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <Provider store={ userStore }>
-                    <StyledComponentsRegistry>
-                        {children}
-                    </StyledComponentsRegistry>
-                </Provider>
+                <ConfigProvider 
+                    locale={ruRu}
+                    theme={{
+                        token: {
+                            fontFamily: "Nunito"
+                        }
+                    }}
+                >
+                    <Provider store={ userStore }>
+                        <StyledComponentsRegistry>
+                            {children}
+                        </StyledComponentsRegistry>
+                    </Provider>
+                </ConfigProvider>
             </body>
         </html>
     );
