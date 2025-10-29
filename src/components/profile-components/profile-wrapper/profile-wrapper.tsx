@@ -98,6 +98,7 @@ const ProfileWrapper = (props: {
             }
             {
                 <Modal
+                    centered
                     title="Редактирование статуса"
                     closable={{ 'aria-label': 'Custom Close Button' }}
                     open={ statusEditorOpen }
@@ -116,6 +117,7 @@ const ProfileWrapper = (props: {
             }
             {
                 <Modal
+                    centered
                     title="Создание поста"
                     closable={{ 'aria-label': 'Custom Close Button' }}
                     open={ postsCreatorOpen }
@@ -128,6 +130,7 @@ const ProfileWrapper = (props: {
             }
             {
                 <Modal
+                    centered
                     title="Смена аватара"
                     closable={{ 'aria-label': 'Custom Close Button' }}
                     open={ avatarChangerOpen }
