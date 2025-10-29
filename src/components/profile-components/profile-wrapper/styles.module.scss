@@ -39,9 +39,9 @@
 
             .info {
                 display: flex;
-                justify-content: flex-start;
+                justify-content: center;
                 flex-direction: column;
-                height: 50%;   
+                height: 250px;   
                 gap: 10px;
 
                 .name {
@@ -61,13 +61,12 @@
                 }
 
                 .status {
-                    min-height: 80px;
-                    max-height: 80px;
-                    overflow-y: auto;
+                    text-align: justify;
                 }
 
                 .settings {
                     display: flex;
+                    flex-wrap: wrap;
                     gap: 10px;
                 }
             }
@@ -83,6 +82,76 @@
 
         .loader {
             margin-top: 10%;
+        }
+    }
+}
+
+@media screen and (max-width: 1370px) {
+    .profileWrapper {
+        .profileContent {
+            width: 70vw;
+        }
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .profileWrapper {
+        .profileContent {
+            width: 80vw;
+        }
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    .profileWrapper {
+        .profileContent {
+            width: 90vw;
+        }
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .profileWrapper {
+        .profileContent {
+            width: 100vw;
+        }
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .profileWrapper {
+        .profileContent {
+            .header {
+                flex-direction: column;
+
+                .info {
+                    height: auto;
+
+                    .name {
+                        justify-content: center;
+                    }
+
+                    .settings {
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .profileWrapper {
+        .profileContent {
+            .header {
+                flex-direction: column;
+
+                .info {
+                    .settings {
+                        justify-content: center;
+                    }
+                }
+            }
         }
     }
 }
