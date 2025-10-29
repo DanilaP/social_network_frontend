@@ -8,10 +8,11 @@ export interface IPost {
     comments: IComment[]
 }
 
-interface IFile {
+export interface IFile {
     url: string,
     name: string,
-    size: number
+    size: number,
+    type: string
 }
 
 interface IComment {

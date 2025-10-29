@@ -7,6 +7,7 @@ import { BiSolidLike } from 'react-icons/bi';
 import $api from '@/configs/axios';
 import styles from './styles.module.scss';
 import Carousel from '@/components/carousel/carousel';
+import FileList from '@/components/file-list/file-list';
 
 const Post = (props: {
     post: IPost,
@@ -32,7 +33,16 @@ const Post = (props: {
                 className={ styles.deletePostIcon } 
                 fontSize={"30px"} 
             />
-            <Carousel images={ [...props.post.files.map(file => file.url)] } />
+            <Carousel 
+                images={ 
+                    props.post.files.reduce((prev: string[], next) => {
+                        if (next.type.includes("image")) {
+                            return [...prev, next.url];
+                        }
+                        return prev;
+                    }, []) 
+                } 
+            />
             <div className="text">
                 { props.post.text }
             </div>
@@ -46,6 +56,16 @@ const Post = (props: {
                     { props.post.comments.length }
                 </div>
             </div>
+            <FileList 
+                files = { 
+                    props.post.files.filter((file) => {
+                        if (file.type.includes("application") || file.type.includes("text")) {
+                            return true;
+                        }
+                        return false;
+                    })
+                } 
+            />
             <div className={ styles.date }>
                 { props.post.date }
             </div>

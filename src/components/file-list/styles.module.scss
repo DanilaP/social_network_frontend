@@ -1,0 +1,16 @@
+.fileList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .file {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        gap: 10px;
+    }
+
+    .fileIcon {
+        color: rgb(66, 138, 240);
+    }
+}
