@@ -38,10 +38,6 @@ const ProfileWrapper = (props: {
         })
     }, [user]);
 
-    useEffect(() => {
-        console.log(posts);
-    }, [posts]);
-
     return (
         <div className={ styles.profileWrapper }>
             {

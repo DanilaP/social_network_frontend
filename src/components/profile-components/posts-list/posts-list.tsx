@@ -20,7 +20,6 @@ const PostsList = (props: {
             props.setPosts((prev: IPost[] | undefined) => 
                 prev ? prev.filter(post => post._id !== postId) : [res.data.post]
             );
-            console.log(res);
         })
         .catch((error) => {
             console.error(error);

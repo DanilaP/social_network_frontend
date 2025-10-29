@@ -14,7 +14,6 @@ const AvatarChanger = (props: {
 
     const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
         setFileList(newFileList);
-        console.log([newFileList[0].originFileObj]);
     };
 
     const onPreview = async (file: UploadFile) => {
@@ -43,9 +42,8 @@ const AvatarChanger = (props: {
                 }
             });
             $api.post("/user/edit", formData)
-            .then((res) => {
+            .then(() => {
                 props.close();
-                console.log(res);
             })
             .catch(error => {
                 console.error(error);

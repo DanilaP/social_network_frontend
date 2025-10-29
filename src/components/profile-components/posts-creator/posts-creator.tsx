@@ -35,7 +35,6 @@ const PostsCreator = (props: {
             props.setPosts((prev: IPost[] | undefined) => 
                 prev ? [...prev, res.data.post] : [res.data.post]
             );
-            console.log(res);
         })
         .catch((error) => {
             console.error(error);
