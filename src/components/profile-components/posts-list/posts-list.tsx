@@ -3,21 +3,23 @@ import { BiSolidLike } from "react-icons/bi";
 import { FaComment } from "react-icons/fa";
 import { BsPostcard } from "react-icons/bs";
 import { MdOutlineDeleteSweep } from "react-icons/md";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { IPost } from "@/models/posts/model";
 import styles from './styles.module.scss';
 import $api from "@/configs/axios";
 import Carousel from "@/components/carousel/carousel";
 
-
-const PostsList = (props: { posts: IPost[]  }) => {
-
-    const [updatedPosts, setUpdatedPosts] = useState(props.posts);
+const PostsList = (props: { 
+    posts: IPost[],
+    setPosts: Dispatch<SetStateAction<IPost[] | undefined>>
+}) => {
 
     const deletePost = (postId: string) => {
         $api.delete(`/post?id=${ postId }`)
         .then((res) => {
-            setUpdatedPosts(updatedPosts.filter(post => post._id !== postId));
+            props.setPosts((prev: IPost[] | undefined) => 
+                prev ? prev.filter(post => post._id !== postId) : [res.data.post]
+            );
             console.log(res);
         })
         .catch((error) => {
@@ -25,11 +27,11 @@ const PostsList = (props: { posts: IPost[]  }) => {
         })
     }
 
-    if (updatedPosts.length > 0) {
+    if (props.posts.length > 0) {
         return (
             <div className={ styles.postsList }>
                 {
-                    updatedPosts.map((post) => {
+                    props.posts.map((post) => {
                         return (
                             <div key={ post._id } className={ styles.post }>
                                 <MdOutlineDeleteSweep 

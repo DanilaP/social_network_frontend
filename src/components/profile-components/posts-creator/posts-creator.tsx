@@ -1,6 +1,7 @@
 import { Button, Form, Upload, UploadFile, UploadProps } from 'antd';
 import { MdOutlineCloudUpload } from "react-icons/md";
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
+import { IPost } from '@/models/posts/model';
 import styles from './styles.module.scss';
 import FormItem from 'antd/es/form/FormItem';
 import TextArea from 'antd/es/input/TextArea';
@@ -11,7 +12,8 @@ interface IPostForm {
 };
 
 const PostsCreator = (props: {
-    close: () => void
+    close: () => void,
+    setPosts: Dispatch<SetStateAction<IPost[] | undefined>>
 }) => {
     const [form] = Form.useForm();
     const [isSubmited, setIsSubmited] = useState<boolean>(false);
@@ -30,6 +32,9 @@ const PostsCreator = (props: {
         $api.post("/post", formData)
         .then((res) => {
             props.close();
+            props.setPosts((prev: IPost[] | undefined) => 
+                prev ? [...prev, res.data.post] : [res.data.post]
+            );
             console.log(res);
         })
         .catch((error) => {

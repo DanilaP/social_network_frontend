@@ -38,6 +38,10 @@ const ProfileWrapper = (props: {
         })
     }, [user]);
 
+    useEffect(() => {
+        console.log(posts);
+    }, [posts]);
+
     return (
         <div className={ styles.profileWrapper }>
             {
@@ -89,7 +93,11 @@ const ProfileWrapper = (props: {
                                     </div>
                                 </div>
                             </div>
-                            { posts ? <PostsList posts={ posts } /> : <Spin className={ styles.loader } size = "large" /> }
+                            { 
+                                posts 
+                                    ? <PostsList setPosts={ setPosts } posts={ posts } /> 
+                                    : <Spin className={ styles.loader } size = "large" /> 
+                            }
                         </div>
                     : 
                     <div className="loader-wrapper">
@@ -125,7 +133,7 @@ const ProfileWrapper = (props: {
                     footer={() => (<></>)}
                     destroyOnHidden
                 >
-                    <PostsCreator close={ () => setPostsCreatorOpen(false) } />
+                    <PostsCreator setPosts = { setPosts } close={ () => setPostsCreatorOpen(false) } />
                 </Modal>
             }
             {
