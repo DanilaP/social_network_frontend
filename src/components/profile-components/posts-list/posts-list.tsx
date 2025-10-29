@@ -51,6 +51,9 @@ const PostsList = (props: { posts: IPost[]  }) => {
                                         { post.comments.length }
                                     </div>
                                 </div>
+                                <div className={ styles.date }>
+                                    { post.date }
+                                </div>
                             </div>
                         )
                     })

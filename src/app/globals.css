@@ -26,3 +26,11 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.loader-wrapper {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

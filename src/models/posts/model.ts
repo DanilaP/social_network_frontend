@@ -1,6 +1,7 @@
 export interface IPost {
     _id: string,
     user_id: string,
+    date: string,
     text: string,
     files: IFile[],
     likes: ILike[],

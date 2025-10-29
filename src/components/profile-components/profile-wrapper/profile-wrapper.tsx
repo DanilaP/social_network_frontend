@@ -91,7 +91,10 @@ const ProfileWrapper = (props: {
                             </div>
                             { posts ? <PostsList posts={ posts } /> : <Spin className={ styles.loader } size = "large" /> }
                         </div>
-                    : <Spin className={ styles.mainLoader } size = "large" /> 
+                    : 
+                    <div className="loader-wrapper">
+                        <Spin className={ styles.mainLoader } size = "large" /> 
+                    </div>
             }
             {
                 <Modal
