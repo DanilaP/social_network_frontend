@@ -4,51 +4,8 @@
     position: relative;
     margin-top: 20px;
     gap: 20px;
-
-    .post {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        background-color: rgba(128, 128, 128, 0.35);
-        padding: 20px;
-        border-radius: 15px;
-        position: relative;
-        min-height: 100px;
-        
-        .footer {
-            display: flex;
-            gap: 10px;
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-
-            .item {
-                display: flex;
-                align-items: center;
-                gap: 3px;
-            }
-
-            .date {
-                position: absolute;
-            }
-        }
-
-        .deletePostIcon {
-            z-index: 10;
-            position: absolute;
-            right: 20px;
-            cursor: pointer;
-            display: none;
-            color: rgb(66, 138, 240);
-        }
-
-        &:hover {
-            .deletePostIcon {
-                display: block;
-            }
-        }
-    }
 }
+
 .emptyPostsList {
     display: flex;
     justify-content: center;
