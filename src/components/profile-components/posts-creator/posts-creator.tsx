@@ -1,11 +1,10 @@
 import { Button, Form, Upload, UploadFile, UploadProps } from 'antd';
 import { MdOutlineCloudUpload } from "react-icons/md";
 import { Dispatch, SetStateAction, useState } from 'react';
-import { IPost } from '@/models/posts/model';
+import { createPost, IPost } from '@/models/posts/model';
 import styles from './styles.module.scss';
 import FormItem from 'antd/es/form/FormItem';
 import TextArea from 'antd/es/input/TextArea';
-import $api from '@/configs/axios';
 
 interface IPostForm {
     text: string
@@ -28,8 +27,8 @@ const PostsCreator = (props: {
                 formData.append('files', file.originFileObj);
             }
         });
-
-        $api.post("/post", formData)
+        
+        createPost(formData)
         .then((res) => {
             props.close();
             props.setPosts((prev: IPost[] | undefined) => 

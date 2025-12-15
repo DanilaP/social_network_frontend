@@ -3,10 +3,9 @@ import { IUser } from '@/models/user/model';
 import { Modal } from 'antd';
 import { useSelector } from 'react-redux';
 import { UserStore } from '@/stores/user-store';
-import { IPost } from '@/models/posts/model';
+import { getUserPosts, IPost } from '@/models/posts/model';
 import React, { useEffect, useState } from 'react';
 import styles from "./styles.module.scss";
-import $api from '@/configs/axios';
 import StatusEditor from '../status-editor/status-editor';
 import PostsCreator from '../posts-creator/posts-creator';
 import AvatarChanger from '../avatar-changer/avatar-changer';
@@ -24,7 +23,7 @@ const ProfileWrapper = (props: {
     const user = useSelector((store: UserStore) => store.user);
     
     useEffect(() => {
-        $api.get(`/post?id=${ props.user._id }`)
+        getUserPosts(props.user._id)
         .then((res) => {
             setPosts(res.data.posts);
         })

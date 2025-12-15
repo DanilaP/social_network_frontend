@@ -32,7 +32,17 @@ interface ILike {
     name: string,
 }
 
+export const getUserPosts = async (userId: string) => {
+    const response = await $api.get(`/post?id=${ userId }`);
+    return response;
+}
+
 export const deletePostById = async (postId: string) => {
     const response = await $api.delete(`/post?id=${ postId }`);
+    return response;
+}
+
+export const createPost = async (postInfo: FormData) => {
+    const response = await $api.post("/post", postInfo);
     return response;
 }
