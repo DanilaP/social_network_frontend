@@ -1,3 +1,5 @@
+import $api from "@/configs/axios";
+
 export interface IPost {
     _id: string,
     user_id: string,
@@ -28,4 +30,9 @@ interface ILike {
     user_id: string,
     avatar: string,
     name: string,
+}
+
+export const deletePostById = async (postId: string) => {
+    const response = await $api.delete(`/post?id=${ postId }`);
+    return response;
 }

@@ -1,9 +1,8 @@
 "use client";
-import { IPost } from '@/models/posts/model';
+import { deletePostById, IPost } from '@/models/posts/model';
 import { Dispatch, SetStateAction } from 'react';
 import { FaComment } from 'react-icons/fa';
 import { BiSolidLike } from 'react-icons/bi';
-import $api from '@/configs/axios';
 import styles from './styles.module.scss';
 import Carousel from '@/components/carousel/carousel';
 import FileList from '@/components/file-list/file-list';
@@ -15,7 +14,7 @@ const Post = (props: {
 }) => {
 
     const deletePost = (postId: string) => {
-        $api.delete(`/post?id=${ postId }`)
+        deletePostById(postId)
         .then((res) => {
             props.setPosts((prev: IPost[] | undefined) => 
                 prev ? prev.filter(post => post._id !== postId) : [res.data.post]
