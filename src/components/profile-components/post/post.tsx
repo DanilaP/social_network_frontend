@@ -1,13 +1,13 @@
 "use client";
 import { IPost } from '@/models/posts/model';
 import { Dispatch, SetStateAction } from 'react';
-import { MdOutlineDeleteSweep } from 'react-icons/md';
 import { FaComment } from 'react-icons/fa';
 import { BiSolidLike } from 'react-icons/bi';
 import $api from '@/configs/axios';
 import styles from './styles.module.scss';
 import Carousel from '@/components/carousel/carousel';
 import FileList from '@/components/file-list/file-list';
+import PostSettings from '../post-settings/post-settings';
 
 const Post = (props: {
     post: IPost,
@@ -28,11 +28,7 @@ const Post = (props: {
 
     return (
         <div key={ props.post._id } className={ styles.post }>
-            <MdOutlineDeleteSweep 
-                onClick={ () => deletePost(props.post._id) }
-                className={ styles.deletePostIcon } 
-                fontSize={"30px"} 
-            />
+            <PostSettings deletePost = { deletePost } post={ props.post } />
             <Carousel 
                 images={ 
                     props.post.files.reduce((prev: string[], next) => {

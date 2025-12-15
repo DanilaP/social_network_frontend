@@ -1,0 +1,50 @@
+.postSettings {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    position: relative;
+
+    .settingsIcon {
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(66, 138, 240);
+        }
+    }
+
+    .settingsList {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 10;
+        left: calc(100% - 130px);
+        background-color: #333;
+        border-radius: 5px;
+        padding: 10px;
+        gap: 5px;
+
+        .settingRow {
+            display: flex;
+            align-items: center;
+            background-color: rgba(128, 128, 128, 0.35);
+            padding: 3px 5px 3px 5px;
+            border-radius: 5px;
+            gap: 5px;
+            cursor: pointer;
+            opacity: 0.85;
+
+            .settingRowName {
+                font-size: 15px;
+            }
+
+            .settingRowIcon {
+                display: flex;
+                align-items: center;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
