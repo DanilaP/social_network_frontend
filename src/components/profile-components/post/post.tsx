@@ -57,7 +57,7 @@ const Post = (props: {
             </div>
             <div className={ styles.footer }>
                 <div onClick={ handleLikePost } className={ styles.item }>
-                    <BiSolidLike className={ currentPostLikesNumber ? styles.activeLike : styles.inActiveLike } />
+                    <BiSolidLike className={ isPostLikedByUser ? styles.activeLike : styles.inActiveLike } />
                     { currentPostLikesNumber }
                 </div>
                 <div className={ styles.item }>

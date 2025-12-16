@@ -17,7 +17,7 @@ export interface IFile {
     type: string
 }
 
-interface IComment {
+export interface IComment {
     user_id: string,
     avatar: string,
     name: string,
