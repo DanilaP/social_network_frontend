@@ -46,3 +46,8 @@ export const createPost = async (postInfo: FormData) => {
     const response = await $api.post("/post", postInfo);
     return response;
 }
+
+export const likePost = async (postId: string) => {
+    const response = await $api.post("/post/like", { id: postId });
+    return response;
+}

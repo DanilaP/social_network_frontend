@@ -1,6 +1,6 @@
 "use client";
-import { deletePostById, IPost } from '@/models/posts/model';
-import { Dispatch, SetStateAction } from 'react';
+import { deletePostById, IPost, likePost } from '@/models/posts/model';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { FaComment } from 'react-icons/fa';
 import { BiSolidLike } from 'react-icons/bi';
 import styles from './styles.module.scss';
@@ -13,7 +13,21 @@ const Post = (props: {
     setPosts: Dispatch<SetStateAction<IPost[] | undefined>>
 }) => {
 
-    const deletePost = (postId: string) => {
+    const [currentPostLikesNumber, setCurrentPostLikesNumber] = useState<number>(props.post.likes.length);
+    const [isPostLikedByUser, setIsPostLikedByUser] = useState<boolean>(false);
+
+    const handleLikePost = () => {
+        likePost(props.post._id)
+        .then((res) => {
+            setCurrentPostLikesNumber(res.data.likesNumber);
+            setIsPostLikedByUser(res.data.isPostLikedByUser);
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+    }
+
+    const handleDeletePost = (postId: string) => {
         deletePostById(postId)
         .then((res) => {
             props.setPosts((prev: IPost[] | undefined) => 
@@ -27,7 +41,7 @@ const Post = (props: {
 
     return (
         <div key={ props.post._id } className={ styles.post }>
-            <PostSettings deletePost = { deletePost } post={ props.post } />
+            <PostSettings deletePost = { handleDeletePost } post={ props.post } />
             <Carousel 
                 images={ 
                     props.post.files.reduce((prev: string[], next) => {
@@ -42,9 +56,9 @@ const Post = (props: {
                 { props.post.text }
             </div>
             <div className={ styles.footer }>
-                <div className={ styles.item }>
-                    <BiSolidLike />
-                    { props.post.likes.length }
+                <div onClick={ handleLikePost } className={ styles.item }>
+                    <BiSolidLike className={ currentPostLikesNumber ? styles.activeLike : styles.inActiveLike } />
+                    { currentPostLikesNumber }
                 </div>
                 <div className={ styles.item }>
                     <FaComment />

@@ -18,6 +18,7 @@
         .item {
             display: flex;
             align-items: center;
+            cursor: pointer;
             gap: 3px;
         }
 
@@ -33,6 +34,14 @@
         cursor: pointer;
         display: none;
         color: rgb(66, 138, 240);
+    }
+
+    .activeLike {
+        color: rgb(66, 138, 240);
+    }
+
+    .inActiveLike {
+        color: white;
     }
 
     &:hover {
