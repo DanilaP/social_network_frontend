@@ -14,7 +14,7 @@ const Post = (props: {
 }) => {
 
     const [currentPostLikesNumber, setCurrentPostLikesNumber] = useState<number>(props.post.likes.length);
-    const [isPostLikedByUser, setIsPostLikedByUser] = useState<boolean>(false);
+    const [isPostLikedByUser, setIsPostLikedByUser] = useState<boolean>(props.post.isPostLikedByUser);
 
     const handleLikePost = () => {
         likePost(props.post._id)

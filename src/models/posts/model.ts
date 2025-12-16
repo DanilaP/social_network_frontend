@@ -7,7 +7,8 @@ export interface IPost {
     text: string,
     files: IFile[],
     likes: ILike[],
-    comments: IComment[]
+    comments: IComment[],
+    isPostLikedByUser: boolean
 }
 
 export interface IFile {
