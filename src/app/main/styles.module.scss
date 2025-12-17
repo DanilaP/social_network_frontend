@@ -1,3 +1,39 @@
 .mainWrapper {
-    margin-top: 50px;
+    display: flex;
+    margin-left: 200px;
+}
+.layoutWrapper {
+    width: 70vw;
+    display: flex;
+}
+
+@media screen and (max-width: 1305px) {
+    .layoutWrapper {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 1155px) {
+    .layoutWrapper {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 1015px) {
+    .layoutWrapper {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 925px) {
+    .mainWrapper {
+        margin-left: 150px;
+    }
+}
+
+@media screen and (max-width: 865px) {
+    .mainWrapper {
+        margin-left: 0px;
+        margin-top: 50px;
+    }
 }

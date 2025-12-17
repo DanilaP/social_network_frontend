@@ -9,11 +9,11 @@ export default function RootLayout({
 }>) {
  
     return (
-        <>
+        <div className={ styles.layoutWrapper }>
             <MenuWrapper />
             <div className={ styles.mainWrapper }>
                 { children }
             </div>
-        </>
+        </div>
     );
 }

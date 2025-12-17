@@ -1,21 +1,20 @@
 .menu {
-    width: 100vw;
-    height: 50px;
-    background-color: rgb(66, 138, 240);
+    width: 200px;
+    height: 100vh;
     position: fixed;
     display: flex;
-    align-items: center;
-    padding-left: 30px;
+    flex-direction: column;
+    align-items: flex-start;
     box-sizing: border-box;
     gap: 20px;
     z-index: 10;
-    
+    padding: 50px 20px 20px 20px;
+
     .fixedItem {
         display: flex;
         align-items: center;
         gap: 10px;
         right: 50px;
-        position: absolute;
         cursor: pointer;
 
         &:hover {
@@ -36,5 +35,24 @@
 
     .icon {
         font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 925px) {
+    .menu {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 865px) {
+    .menu {
+        flex-direction: row;
+        position: fixed;
+        width: 100vw;
+        height: 50px;
+        padding: 20px;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.419);
+        backdrop-filter: blur(20px);
     }
 }

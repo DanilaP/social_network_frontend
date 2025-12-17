@@ -26,10 +26,6 @@ const MenuWrapper = () => {
 
     return (
         <div className={ styles.menu }>
-            <div onClick={ exit } className={ styles.fixedItem }>
-                <GiExitDoor className={ styles.icon } />
-                Выход
-            </div>
             <div onClick={ () => router.push(`/main/user/${ user?._id }`) } className={ styles.item }>
                 <FaUserCircle className={ styles.icon } />
                 Профиль
@@ -37,6 +33,10 @@ const MenuWrapper = () => {
             <div onClick={ () => router.push("/main/users") } className={ styles.item }>
                 <IoPeopleCircle className={ styles.icon } />
                 Люди
+            </div>
+            <div onClick={ exit } className={ styles.fixedItem }>
+                <GiExitDoor className={ styles.icon } />
+                Выход
             </div>
         </div>
     );
