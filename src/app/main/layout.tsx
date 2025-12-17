@@ -10,6 +10,7 @@ export default function RootLayout({
  
     return (
         <div className={ styles.layoutWrapper }>
+            <div className={ styles.mainHeader }></div>
             <MenuWrapper />
             <div className={ styles.mainWrapper }>
                 { children }
