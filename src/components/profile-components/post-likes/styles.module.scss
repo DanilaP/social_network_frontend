@@ -1,3 +1,19 @@
+.likesList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .like {
+        .userAvatarWrapper {
+            .userAvatarImage {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
 .postLikes {
     display: flex;
     align-items: center;
