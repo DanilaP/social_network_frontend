@@ -1,0 +1,13 @@
+.postLikes {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    
+    .activeLike {
+        color: rgb(66, 138, 240);
+    }
+
+    .inActiveLike {
+        color: white;
+    }
+}

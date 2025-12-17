@@ -2,11 +2,11 @@
 import { deletePostById, IPost, likePost } from '@/models/posts/model';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { FaComment } from 'react-icons/fa';
-import { BiSolidLike } from 'react-icons/bi';
 import styles from './styles.module.scss';
 import Carousel from '@/components/carousel/carousel';
 import FileList from '@/components/file-list/file-list';
 import PostSettings from '../post-settings/post-settings';
+import PostLikes from '../post-likes/post-likes';
 
 const Post = (props: {
     post: IPost,
@@ -56,9 +56,13 @@ const Post = (props: {
                 { props.post.text }
             </div>
             <div className={ styles.footer }>
-                <div onClick={ handleLikePost } className={ styles.item }>
-                    <BiSolidLike className={ isPostLikedByUser ? styles.activeLike : styles.inActiveLike } />
-                    { currentPostLikesNumber }
+                <div className={ styles.item }>
+                    <PostLikes 
+                        likes={ props.post.likes } 
+                        isPostLikedByUser = { isPostLikedByUser } 
+                        handleLikePost={ handleLikePost }
+                        currentPostLikesNumber= { currentPostLikesNumber }
+                    />
                 </div>
                 <div className={ styles.item }>
                     <FaComment />

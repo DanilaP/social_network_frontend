@@ -27,8 +27,8 @@ export interface IComment {
     likes: ILike[]
 }
 
-interface ILike {
-    user_id: string,
+export interface ILike {
+    _id: string,
     avatar: string,
     name: string,
 }
