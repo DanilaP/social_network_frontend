@@ -5,7 +5,7 @@ import { logout } from "@/models/user/model";
 import { IoPeopleCircle } from "react-icons/io5";
 import { FaUserCircle, FaUserFriends } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { BiMessageRounded } from "react-icons/bi";
+import { BiSolidMessageRounded } from "react-icons/bi";
 import userStore, { UserStore } from "@/stores/user-store";
 import styles from './styles.module.scss';
 
@@ -36,7 +36,7 @@ const MenuWrapper = () => {
                 Друзья
             </div>
             <div onClick={ exit } className={ styles.fixedItem }>
-                <BiMessageRounded className={ styles.icon } />
+                <BiSolidMessageRounded  className={ styles.icon } />
                 Сообщения
             </div>
             <div onClick={ () => router.push("/main/users") } className={ styles.item }>
