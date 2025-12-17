@@ -3,8 +3,9 @@ import { GiExitDoor } from "react-icons/gi";
 import { useRouter } from "next/navigation";
 import { logout } from "@/models/user/model";
 import { IoPeopleCircle } from "react-icons/io5";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaUserFriends } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { BiMessageRounded } from "react-icons/bi";
 import userStore, { UserStore } from "@/stores/user-store";
 import styles from './styles.module.scss';
 
@@ -29,6 +30,14 @@ const MenuWrapper = () => {
             <div onClick={ () => router.push(`/main/user/${ user?._id }`) } className={ styles.item }>
                 <FaUserCircle className={ styles.icon } />
                 Профиль
+            </div>
+            <div onClick={ exit } className={ styles.fixedItem }>
+                <FaUserFriends className={ styles.icon } />
+                Друзья
+            </div>
+            <div onClick={ exit } className={ styles.fixedItem }>
+                <BiMessageRounded className={ styles.icon } />
+                Сообщения
             </div>
             <div onClick={ () => router.push("/main/users") } className={ styles.item }>
                 <IoPeopleCircle className={ styles.icon } />

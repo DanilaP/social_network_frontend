@@ -58,17 +58,9 @@ const ProfileHeader = ({
                     </div>
                     <div className={ styles.status }>{ status }</div>
                     <div className={ styles.settings }>
-                        <Button type='primary'>
-                            <FaUserFriends className={ styles.icon } />
-                            Друзья ({ user.friends.length })
-                        </Button>
                         { 
                             user._id === user?._id &&
                                 <>
-                                    <Button type='primary'>
-                                        <BiMessageRounded className={ styles.icon } />
-                                        Мои сообщения
-                                    </Button>
                                     <Button 
                                         onClick={ () => setPostsCreatorOpen(true) } 
                                         type='primary'
@@ -76,10 +68,6 @@ const ProfileHeader = ({
                                     >
                                         <BsPostcard className={ styles.icon } />
                                         Написать пост
-                                    </Button>
-                                    <Button type='primary'>
-                                        <LiaUserFriendsSolid className={ styles.icon } />
-                                        Заявки в друзья ({ user.friendRequests.length })
                                     </Button>
                                 </>
                         }
