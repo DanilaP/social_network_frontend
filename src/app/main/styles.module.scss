@@ -47,11 +47,25 @@
     .layoutWrapper {
         width: 80vw;
     }
+    .mainHeader {
+        padding: 5px calc(10vw + 10px) 5px calc(10vw + 10px);
+
+        .mainHeaderAvatarWrapper {
+            right: calc(10vw - 10px);
+        }
+    }
 }
 
 @media screen and (max-width: 1155px) {
     .layoutWrapper {
         width: 90vw;
+    }
+    .mainHeader {
+        padding: 5px calc(5vw + 10px) 5px calc(5vw + 10px);
+
+        .mainHeaderAvatarWrapper {
+            right: calc(5vw - 10px);
+        }
     }
 }
 
@@ -59,11 +73,24 @@
     .layoutWrapper {
         width: 100vw;
     }
+    .mainHeader {
+        padding: 5px calc(1.5vw) 5px calc(1.5vw);
+
+        .mainHeaderAvatarWrapper {
+            right: calc(2.5vw);
+        }
+    }
 }
 
 @media screen and (max-width: 925px) {
     .mainWrapper {
         margin-left: 150px;
+    }
+    .mainHeader {
+        display: none;
+    }
+    .layoutWrapper {
+        margin-top: 0px;
     }
 }
 
