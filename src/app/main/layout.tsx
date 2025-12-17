@@ -1,4 +1,8 @@
 "use client";
+import { IoLogoEdge } from "react-icons/io5";
+import { useSelector } from "react-redux";
+import { UserStore } from "@/stores/user-store";
+import { FaChevronDown } from "react-icons/fa";
 import MenuWrapper from "@/components/menu-wrapper/menu-wrapper";
 import styles from './styles.module.scss';
 
@@ -7,10 +11,19 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
- 
+    
+    const user = useSelector((store: UserStore) => store.user);
+
     return (
         <div className={ styles.layoutWrapper }>
-            <div className={ styles.mainHeader }></div>
+            <div className={ styles.mainHeader }>
+                <IoLogoEdge fontSize={ 30 }/>
+                SocialNetwork
+                <div className={ styles.mainHeaderAvatarWrapper }>
+                    <img className={ styles.mainHeaderUserAvatar } src = { user?.avatar } />
+                    <FaChevronDown fontSize={ 15 } />
+                </div>
+            </div>
             <MenuWrapper />
             <div className={ styles.mainWrapper }>
                 { children }

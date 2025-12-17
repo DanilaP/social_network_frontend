@@ -9,6 +9,10 @@
     margin-top: 20px;
 }
 .mainHeader {
+    display: flex;
+    align-items: center;
+    padding: 5px calc(15vw + 10px) 5px calc(15vw + 10px);
+    gap: 10px;
     position: fixed;
     left: 0;
     top: 0;
@@ -17,6 +21,27 @@
     backdrop-filter: blur(20px);
     width: 100vw;
     z-index: 100;
+
+    .mainHeaderAvatarWrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        right: calc(15vw - 10px);
+        cursor: pointer;
+        height: 100%;
+        padding: 5px;
+        
+        .mainHeaderUserAvatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        &:hover {
+            background-color: rgba(128, 128, 128, 0.234);
+        }
+    }
 }
 @media screen and (max-width: 1305px) {
     .layoutWrapper {
