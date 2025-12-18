@@ -84,19 +84,13 @@
 
 @media screen and (max-width: 925px) {
     .mainWrapper {
-        margin-left: 150px;
+        margin-left: 0px;
+        margin-top: 50px;
     }
     .mainHeader {
         display: none;
     }
     .layoutWrapper {
         margin-top: 0px;
-    }
-}
-
-@media screen and (max-width: 865px) {
-    .mainWrapper {
-        margin-left: 0px;
-        margin-top: 50px;
     }
 }

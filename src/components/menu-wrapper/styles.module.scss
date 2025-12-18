@@ -40,12 +40,6 @@
 
 @media screen and (max-width: 925px) {
     .menu {
-        width: 150px;
-    }
-}
-
-@media screen and (max-width: 865px) {
-    .menu {
         flex-direction: row;
         position: fixed;
         width: 100vw;
