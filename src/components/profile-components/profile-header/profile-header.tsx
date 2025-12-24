@@ -2,13 +2,11 @@
 import { IUser } from '@/models/user/model';
 import { IPost } from '@/models/posts/model';
 import { IoAddOutline } from "react-icons/io5";
-import { LiaUserFriendsSolid } from "react-icons/lia";
 import { BsPostcard } from "react-icons/bs";
-import { FaUserFriends } from "react-icons/fa";
-import { BiMessageRounded } from "react-icons/bi";
 import { MdEdit } from "react-icons/md";
 import { Button, Spin } from 'antd';
 import { Dispatch, SetStateAction } from 'react';
+import { useParams } from 'next/navigation';
 import PostsList from '../posts-list/posts-list';
 import styles from './styles.module.scss';
 
@@ -31,12 +29,16 @@ const ProfileHeader = ({
     setPosts,
     status
 } : IProfileHeaderProps) => {
+
+    const params = useParams();
+    const userParamId = params.id;
+
     return (
         <div className={ styles.profileContent }>
             <div className={ styles.header }>
                 <div className={ styles.avatar }>
                     {
-                        user._id === user._id &&
+                        user._id === userParamId &&
                             <IoAddOutline 
                                 onClick={ () => setAvatarChangerOpen(true) } 
                                 className={ styles.changeAvatarIcon } 
@@ -48,7 +50,7 @@ const ProfileHeader = ({
                     <div className={ styles.name }>
                         { user.name }
                         { 
-                        user._id === user._id 
+                        user._id === userParamId 
                             && 
                                 <MdEdit 
                                     onClick={ () => setStatusEditorOpen(true) } 
@@ -59,7 +61,7 @@ const ProfileHeader = ({
                     <div className={ styles.status }>{ status }</div>
                     <div className={ styles.settings }>
                         { 
-                            user._id === user?._id &&
+                            user._id === userParamId &&
                                 <>
                                     <Button 
                                         onClick={ () => setPostsCreatorOpen(true) } 
