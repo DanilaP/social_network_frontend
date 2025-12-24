@@ -1,0 +1,40 @@
+.friendCard {
+    display: flex;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.247);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 10px;
+
+    .avatar {
+        cursor: pointer;
+        
+        .avatarImage {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+
+    .settings {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        
+        .writingMessageButton {
+            display: flex;
+            color: grey;
+            cursor: pointer;
+            gap: 5px;
+
+            .text {
+                font-size: 12px;
+            }
+
+            &:hover {
+                color: rgba(0, 204, 255, 0.57);
+            }
+        }
+    }
+}
