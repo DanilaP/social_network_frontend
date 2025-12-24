@@ -5,7 +5,7 @@ const FriendsList = () => {
 
     return (
         <div className={ styles.friendsListWrapper }>
-            
+            friends
         </div>
     );
 };

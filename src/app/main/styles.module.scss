@@ -1,7 +1,7 @@
 .mainWrapper {
     display: flex;
     margin-left: 200px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .layoutWrapper {
     width: 70vw;
@@ -20,7 +20,7 @@
     background-color: black;
     backdrop-filter: blur(20px);
     width: 100vw;
-    z-index: 100;
+    z-index: 110;
 
     .mainHeaderAvatarWrapper {
         display: flex;

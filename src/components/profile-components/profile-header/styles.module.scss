@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     border-radius: 25px;
-    padding: 25px;
     box-sizing: border-box;
     
     .header {   
@@ -74,6 +73,12 @@
 
     .loader {
         margin-top: 10%;
+    }
+}
+
+@media screen and (max-width: 1015px) {
+    .profileContent {
+        padding: 10px 20px 10px 20px;
     }
 }
 

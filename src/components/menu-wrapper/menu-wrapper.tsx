@@ -31,7 +31,7 @@ const MenuWrapper = () => {
                 <FaUserCircle className={ styles.icon } />
                 Профиль
             </div>
-            <div onClick={ exit } className={ styles.fixedItem }>
+            <div onClick={ () => router.push(`/main/friends`) } className={ styles.fixedItem }>
                 <FaUserFriends className={ styles.icon } />
                 Друзья
             </div>
