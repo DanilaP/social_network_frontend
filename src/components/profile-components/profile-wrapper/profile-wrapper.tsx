@@ -20,7 +20,7 @@ const ProfileWrapper = (props: {
     const [postsCreatorOpen, setPostsCreatorOpen] = useState<boolean>(false);
     const [avatarChangerOpen, setAvatarChangerOpen] = useState<boolean>(false);
     const [status, setStatus] = useState<string>(props.user.status);
-    const user = useSelector((store: UserStore) => store.user);
+    const authorizedUserInfo = useSelector((store: UserStore) => store.user);
     
     useEffect(() => {
         getUserPosts(props.user._id)
@@ -30,19 +30,20 @@ const ProfileWrapper = (props: {
         .catch((error) => {
             console.error(error);
         })
-    }, [user]);
+    }, [props.user]);
 
     return (
         <div className={ styles.profileWrapper }>
             {
-                user && posts && 
+                props.user && posts && authorizedUserInfo &&
                     <ProfileHeader 
                         setAvatarChangerOpen = { setAvatarChangerOpen }
                         setStatusEditorOpen = { setStatusEditorOpen }
                         setPostsCreatorOpen = { setPostsCreatorOpen }
                         setPosts = { setPosts }
                         posts = { posts } 
-                        user = { user } 
+                        user = { props.user } 
+                        authorizedUserInfo = { authorizedUserInfo }
                         status = { status }
                     />  
             }
@@ -56,9 +57,9 @@ const ProfileWrapper = (props: {
                     footer={() => (<></>)}
                     destroyOnHidden
                 >
-                    { user && 
+                    { authorizedUserInfo && 
                         <StatusEditor 
-                            status={ user.status } 
+                            status={ authorizedUserInfo.status } 
                             close={ setStatusEditorOpen } 
                             setStatus = { setStatus }
                         /> 

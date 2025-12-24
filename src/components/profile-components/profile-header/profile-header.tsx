@@ -6,12 +6,12 @@ import { BsPostcard } from "react-icons/bs";
 import { MdEdit } from "react-icons/md";
 import { Button, Spin } from 'antd';
 import { Dispatch, SetStateAction } from 'react';
-import { useParams } from 'next/navigation';
 import PostsList from '../posts-list/posts-list';
 import styles from './styles.module.scss';
 
 interface IProfileHeaderProps {
     user: IUser,
+    authorizedUserInfo: IUser,
     posts: IPost[],
     setAvatarChangerOpen: (value: boolean) => void,
     setStatusEditorOpen: (value: boolean) => void,
@@ -22,6 +22,7 @@ interface IProfileHeaderProps {
     
 const ProfileHeader = ({ 
     user, 
+    authorizedUserInfo,
     posts, 
     setAvatarChangerOpen,
     setStatusEditorOpen,
@@ -30,15 +31,12 @@ const ProfileHeader = ({
     status
 } : IProfileHeaderProps) => {
 
-    const params = useParams();
-    const userParamId = params.id;
-
     return (
         <div className={ styles.profileContent }>
             <div className={ styles.header }>
                 <div className={ styles.avatar }>
                     {
-                        user._id === userParamId &&
+                        user._id === authorizedUserInfo._id &&
                             <IoAddOutline 
                                 onClick={ () => setAvatarChangerOpen(true) } 
                                 className={ styles.changeAvatarIcon } 
@@ -50,7 +48,7 @@ const ProfileHeader = ({
                     <div className={ styles.name }>
                         { user.name }
                         { 
-                        user._id === userParamId 
+                        user._id === authorizedUserInfo._id 
                             && 
                                 <MdEdit 
                                     onClick={ () => setStatusEditorOpen(true) } 
@@ -61,7 +59,7 @@ const ProfileHeader = ({
                     <div className={ styles.status }>{ status }</div>
                     <div className={ styles.settings }>
                         { 
-                            user._id === userParamId &&
+                            user._id === authorizedUserInfo._id &&
                                 <>
                                     <Button 
                                         onClick={ () => setPostsCreatorOpen(true) } 
