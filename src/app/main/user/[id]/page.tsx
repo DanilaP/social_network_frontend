@@ -1,7 +1,7 @@
 import { fetchWithAuth } from "@/middleware/fetch-api";
 import { IUser } from "@/models/user/model";
 import { notFound } from "next/navigation";
-import ProfileWrapper from "@/components/profile-components/profile-wrapper/profile-wrapper";
+import ProfileWrapper from "@/components/pages/profile/profile-wrapper/profile-wrapper";
 
 async function fetchUserData(id: string) {
     const user: IUser = await fetchWithAuth(

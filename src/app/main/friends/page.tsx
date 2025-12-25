@@ -1,7 +1,7 @@
 import { fetchWithAuth } from "@/middleware/fetch-api";
 import { notFound } from "next/navigation";
 import { IFriend } from "@/models/friends/model";
-import FriendsList from "@/components/friends-components/friends-list/friends-list";
+import FriendsList from "@/components/pages/friends/friends-list/friends-list";
 
 async function fetchFriendsData() {
     const friends: IFriend[] = await fetchWithAuth(

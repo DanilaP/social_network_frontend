@@ -3,7 +3,7 @@ import { IoLogoEdge } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { UserStore } from "@/stores/user-store";
 import { FaChevronDown } from "react-icons/fa";
-import MenuWrapper from "@/components/menu-wrapper/menu-wrapper";
+import MenuWrapper from "@/components/partials/menu-wrapper/menu-wrapper";
 import styles from './styles.module.scss';
 
 export default function RootLayout({

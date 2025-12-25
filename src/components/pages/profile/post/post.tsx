@@ -3,8 +3,8 @@ import { deletePostById, IPost, likePost } from '@/models/posts/model';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { FaComment } from 'react-icons/fa';
 import styles from './styles.module.scss';
-import Carousel from '@/components/carousel/carousel';
-import FileList from '@/components/file-list/file-list';
+import Carousel from '@/components/partials/carousel/carousel';
+import FileList from '@/components/partials/file-list/file-list';
 import PostSettings from '../post-settings/post-settings';
 import PostLikes from '../post-likes/post-likes';
 

@@ -5,7 +5,7 @@ import { getUserData } from "@/models/user/model";
 import { ConfigProvider } from "antd";
     import { unstableSetRender } from 'antd';
 import { createRoot } from 'react-dom/client';
-import StyledComponentsRegistry from "@/components/antd-registry/antd-registry";
+import StyledComponentsRegistry from "@/components/partials/antd-registry/antd-registry";
 import userStore from "@/stores/user-store";
 import ruRu from 'antd/locale/ru_RU';
 import "./globals.css";
