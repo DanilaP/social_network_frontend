@@ -1,7 +1,7 @@
 import { fetchWithAuth } from "@/middleware/fetch-api";
 import { notFound } from "next/navigation";
 import { IFriend } from "@/models/friends/model";
-import FriendsList from "@/components/pages/friends/friends-list/friends-list";
+import FriendsPage from "@/components/pages/friends/friends";
 
 async function fetchFriendsData() {
     const friends: IFriend[] = await fetchWithAuth(
@@ -23,7 +23,7 @@ export default async function Friends() {
 
     if (friends) {
         return (
-            <FriendsList friends={ friends } />
+            <FriendsPage friends={ friends } />
         )
     } else {
         notFound();

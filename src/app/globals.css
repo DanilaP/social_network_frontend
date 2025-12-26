@@ -29,3 +29,7 @@ body .ant-upload-list {
     max-height: 40vh;
     overflow-y: auto;
 }
+
+body .ant-tabs .ant-tabs-tab-btn {
+    color: white;
+}
