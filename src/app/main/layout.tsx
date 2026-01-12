@@ -17,8 +17,7 @@ export default function RootLayout({
     return (
         <div className={ styles.layoutWrapper }>
             <div className={ styles.mainHeader }>
-                <IoLogoEdge fontSize={ 30 }/>
-                SocialNetwork
+                <div className={ styles.projectName }>SOCIAL_NETWORK</div>
                 <div className={ styles.mainHeaderAvatarWrapper }>
                     <img className={ styles.mainHeaderUserAvatar } src = { user?.avatar } />
                     <FaChevronDown fontSize={ 15 } />
