@@ -1,13 +1,15 @@
 import { Tabs, TabsProps } from 'antd';
-import { IFriend } from '@/models/friends/model';
+import { IFriend, IFriendRequest } from '@/models/friends/model';
 import styles from './styles.module.scss';
 import FriendsList from './friends-list/friends-list';
+import FriendRequestsList from './friend-requests-list/friend-requests-list';
 
 interface IFriendsProps {
-    friends: IFriend[]
+    friends: IFriend[],
+    friendRequests: IFriendRequest[]
 }
 
-const FriendsPage = ({ friends }: IFriendsProps) => {
+const FriendsPage = ({ friends, friendRequests }: IFriendsProps) => {
 
     const items: TabsProps['items'] = [
         {
@@ -18,7 +20,7 @@ const FriendsPage = ({ friends }: IFriendsProps) => {
         {
             key: '2',
             label: 'Заявки в друзья',
-            children: 'Content of Tab Pane 1',
+            children: <FriendRequestsList friendRequests = { friendRequests } /> ,
         },
     ];
 

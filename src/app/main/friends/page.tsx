@@ -18,12 +18,28 @@ async function fetchFriendsData() {
     return friends;
 };
 
+async function fetchFriendRequestsData() {
+    const friends: IFriend[] = await fetchWithAuth(
+        `${process.env.NEXT_PUBLIC_API}/friends/get-friend-requests`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+    )
+        .then(response => response.json())
+        .then(data => data?.friendRequests);
+    return friends;
+};
+
 export default async function Friends() {
     const friends = await fetchFriendsData();
+    const friendRequests = await fetchFriendRequestsData();
 
     if (friends) {
         return (
-            <FriendsPage friends={ friends } />
+            <FriendsPage friends={ friends } friendRequests = { friendRequests } />
         )
     } else {
         notFound();
