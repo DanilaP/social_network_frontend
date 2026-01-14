@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
-import styles from './carousel.module.scss'; 
+import styles from './styles.module.scss'; 
 
 const Carousel = ({ images }: { images: string[] }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
