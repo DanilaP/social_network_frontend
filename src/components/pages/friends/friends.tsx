@@ -40,7 +40,11 @@ const FriendsPage = ({ friends, friendRequests }: IFriendsProps) => {
 
     return (
         <div className={ styles.friendsWrapper }>
-            <Tabs defaultActiveKey="1" items={ items } />
+            <Tabs 
+                defaultActiveKey="1" 
+                items={ items } 
+                destroyOnHidden
+            />
         </div>
     );
 };
