@@ -31,6 +31,7 @@ const FriendsPage = ({ friends, friendRequests }: IFriendsProps) => {
             label: `Заявки в друзья (${ updatedFriendRequestList.length })`,
             children: 
                 <FriendRequestsList 
+                    updateFriendsList = { setUpdatedFriendsList }
                     updateFriendRequestsList = { setUpdatedFriendRequestList } 
                     friendRequests = { updatedFriendRequestList } 
                 /> ,

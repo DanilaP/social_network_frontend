@@ -1,5 +1,5 @@
 "use client"
-import { acceptFriendRequest, deleteFriendRequest, IFriendRequest } from '@/models/friends/model';
+import { acceptFriendRequest, deleteFriendRequest, IFriend, IFriendRequest } from '@/models/friends/model';
 import { useRouter } from 'next/navigation';
 import { LuMessageCircleMore } from 'react-icons/lu';
 import { Button, message } from 'antd';
@@ -8,10 +8,15 @@ import styles from './styles.module.scss';
 
 interface IFriendRequestCardProps {
     friendRequest: IFriendRequest,
-    updateFriendRequestsList: Dispatch<SetStateAction<IFriendRequest[]>>
+    updateFriendRequestsList: Dispatch<SetStateAction<IFriendRequest[]>>,
+    updateFriendsList: Dispatch<SetStateAction<IFriend[]>>
 }
 
-const FriendRequestCard = ({ friendRequest, updateFriendRequestsList }: IFriendRequestCardProps) => {
+const FriendRequestCard = ({ 
+    friendRequest, 
+    updateFriendRequestsList,
+    updateFriendsList 
+}: IFriendRequestCardProps) => {
 
     const [messageApi, contextHolder] = message.useMessage();
     const router = useRouter();
@@ -19,7 +24,8 @@ const FriendRequestCard = ({ friendRequest, updateFriendRequestsList }: IFriendR
     const handleAcceptFriendRequest = () => {
         acceptFriendRequest(friendRequest._id)
         .then((res) => {
-            updateFriendRequestsList(prev => [...prev, res.data.friend]);
+            updateFriendRequestsList(prev => prev.filter(el => el._id !== friendRequest._id));
+            updateFriendsList(prev => [...prev, { ...friendRequest, status: "" }]);
             messageApi.open({
                 type: 'success',
                 content: `${ friendRequest.name } добавлен в список ваших друзей`,
