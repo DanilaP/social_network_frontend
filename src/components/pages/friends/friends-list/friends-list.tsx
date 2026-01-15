@@ -1,15 +1,16 @@
 "use client"
 import { IFriend } from '@/models/friends/model';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import styles from './styles.module.scss';
 import FriendCard from '../friend-card/friend-card';
 import FriendsListSettings from '../friends-list-settings/friends-list-settings';
 
 interface IFriendsListProps {
-    friends: IFriend[]
+    friends: IFriend[],
+    updatedFriendsList: Dispatch<SetStateAction<IFriend[]>>
 }
 
-const FriendsList = ({ friends }: IFriendsListProps) => {
+const FriendsList = ({ friends, updatedFriendsList }: IFriendsListProps) => {
 
     const [filteredFriends, setFilteredFriends] = useState(friends);
 
@@ -29,6 +30,7 @@ const FriendsList = ({ friends }: IFriendsListProps) => {
                 filteredFriends.map(friend => {
                     return (
                         <FriendCard 
+                            updatedFriendsList = { updatedFriendsList }
                             key={ friend._id } 
                             friend={ friend } 
                         />

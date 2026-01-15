@@ -1,5 +1,6 @@
 .friendCard {
     display: flex;
+    position: relative;
     width: 100%;
     background-color: rgba(128, 128, 128, 0.247);
     padding: 20px;
@@ -39,6 +40,19 @@
 
         .name {
             color: white;
+        }
+    }
+
+    .editingButtons {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        right: 20px;
+        top: 35px;
+
+        .editingButton {
+            font-size: 12px;
+            height: 25px;
         }
     }
 }

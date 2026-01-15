@@ -7,7 +7,6 @@ import { FaUserCircle, FaUserFriends } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import userStore, { UserStore } from "@/stores/user-store";
-import { HiMiniUserGroup } from "react-icons/hi2";
 import styles from './styles.module.scss';
 
 const MenuWrapper = () => {
@@ -39,10 +38,6 @@ const MenuWrapper = () => {
             <div onClick={ () => router.push("/main/users") } className={ styles.item }>
                 <IoPeopleCircle className={ styles.icon } />
                 Люди
-            </div>
-            <div className={ styles.item }>
-                <HiMiniUserGroup className={ styles.icon } />
-                Группы
             </div>
             <div className={ styles.fixedItem }>
                 <BiSolidMessageRounded  className={ styles.icon } />

@@ -1,5 +1,7 @@
+"use client"
 import { Tabs, TabsProps } from 'antd';
 import { IFriend, IFriendRequest } from '@/models/friends/model';
+import { useState } from 'react';
 import styles from './styles.module.scss';
 import FriendsList from './friends-list/friends-list';
 import FriendRequestsList from './friend-requests-list/friend-requests-list';
@@ -11,16 +13,27 @@ interface IFriendsProps {
 
 const FriendsPage = ({ friends, friendRequests }: IFriendsProps) => {
 
+    const [updatedFriendsList, setUpdatedFriendsList] = useState(friends);
+    const [updatedFriendRequestList, setUpdatedFriendRequestList] = useState(friendRequests);
+
     const items: TabsProps['items'] = [
         {
             key: '1',
-            label: 'Друзья',
-            children: <FriendsList friends = { friends } /> ,
+            label: `Друзья (${ updatedFriendsList.length })`,
+            children: 
+                <FriendsList 
+                    updatedFriendsList = { setUpdatedFriendsList } 
+                    friends = { updatedFriendsList } 
+                /> ,
         },
         {
             key: '2',
-            label: 'Заявки в друзья',
-            children: <FriendRequestsList friendRequests = { friendRequests } /> ,
+            label: `Заявки в друзья (${ updatedFriendRequestList.length })`,
+            children: 
+                <FriendRequestsList 
+                    updateFriendRequestsList = { setUpdatedFriendRequestList } 
+                    friendRequests = { updatedFriendRequestList } 
+                /> ,
         },
     ];
 
