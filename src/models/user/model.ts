@@ -10,7 +10,8 @@ export interface IUser {
     role: string,
     friends: string[],
     posts: IPost[],
-    friendRequests: [],
+    friendRequests: string[],
+    sendedFriendRequests: string[],
     dialogs: string[]
 }
 
