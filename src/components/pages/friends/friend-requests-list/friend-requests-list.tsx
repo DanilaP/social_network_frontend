@@ -23,7 +23,14 @@ const FriendRequestsList = ({
         setFilteredRequests(prev => prev.filter(userInfo => userInfo.name === userName));
     }
 
-    return (
+    if (friendRequests.length === 0) {
+        return (
+            <div className={ styles.emptyList }>
+                <div className={ styles.title }>Список заявок в друзья пуст.</div>
+            </div>
+        )
+    }
+    else return (
         <div className={ styles.friendRequestsList }>
             <FriendRequestsListSettings handleFilterFriendRequests = { handleFilterFriendRequests } />
             {
