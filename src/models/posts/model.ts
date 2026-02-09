@@ -15,7 +15,7 @@ export interface IFile {
     url: string,
     name: string,
     size: number,
-    type: string
+    fileType: string
 }
 
 export interface IComment {

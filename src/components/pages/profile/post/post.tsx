@@ -45,7 +45,7 @@ const Post = (props: {
             <Carousel 
                 images={ 
                     props.post.files.reduce((prev: string[], next) => {
-                        if (next.type.includes("image")) {
+                        if (next.fileType.includes("image")) {
                             return [...prev, next.url];
                         }
                         return prev;
@@ -72,7 +72,7 @@ const Post = (props: {
             <FileList 
                 files = { 
                     props.post.files.filter((file) => {
-                        if (file.type.includes("application") || file.type.includes("text")) {
+                        if (file.fileType.includes("application") || file.fileType.includes("text")) {
                             return true;
                         }
                         return false;
