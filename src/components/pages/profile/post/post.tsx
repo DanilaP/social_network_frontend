@@ -10,7 +10,8 @@ import PostLikes from '../post-likes/post-likes';
 
 const Post = (props: {
     post: IPost,
-    setPosts: Dispatch<SetStateAction<IPost[] | undefined>>
+    setPosts: Dispatch<SetStateAction<IPost[] | undefined>>,
+    handleClick: (post: IPost) => void
 }) => {
 
     const [currentPostLikesNumber, setCurrentPostLikesNumber] = useState<number>(props.post.likes.length);
@@ -39,6 +40,10 @@ const Post = (props: {
         })
     }
 
+    const handleCommentsClick = () => {
+        props.handleClick(props.post);
+    }
+
     return (
         <div key={ props.post._id } className={ styles.post }>
             <PostSettings deletePost = { handleDeletePost } post={ props.post } />
@@ -64,7 +69,7 @@ const Post = (props: {
                         currentPostLikesNumber= { currentPostLikesNumber }
                     />
                 </div>
-                <div className={ styles.item }>
+                <div onClick={ handleCommentsClick } className={ styles.item }>
                     <FaComment />
                     { props.post.comments.length }
                 </div>

@@ -3,10 +3,13 @@
     flex-direction: column;
     border-radius: 25px;
     box-sizing: border-box;
-    
+
     .header {   
         display: flex;
         align-items: center;
+        background-color: rgba(128, 128, 128, 0.35);
+        border-radius: 25px;
+        padding: 20px;
         gap: 10px;
 
         .avatar {

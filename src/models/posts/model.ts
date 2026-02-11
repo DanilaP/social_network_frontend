@@ -19,6 +19,7 @@ export interface IFile {
 }
 
 export interface IComment {
+    _id: string,
     user_id: string,
     avatar: string,
     name: string,
@@ -50,5 +51,10 @@ export const createPost = async (postInfo: FormData) => {
 
 export const likePost = async (postId: string) => {
     const response = await $api.post("/post/like", { id: postId });
+    return response;
+}
+
+export const getPostById = async (postId: string) => {
+    const response = await $api.get(`/post/get-post-by-id?id=${ postId }`);
     return response;
 }
