@@ -58,3 +58,13 @@ export const getPostById = async (postId: string) => {
     const response = await $api.get(`/post/get-post-by-id?id=${ postId }`);
     return response;
 }
+
+export const createCommentForPost = async (comment: IComment) => {
+    const response = await $api.post("/post/comment", comment);
+    return response;
+}
+
+export const likeComment = async (commentId: string, postId: string) => {
+    const response = await $api.post("/post/comment/like", { comment_id: commentId, id: postId });
+    return response;
+}

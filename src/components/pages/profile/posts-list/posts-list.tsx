@@ -47,7 +47,13 @@ const PostsList = (props: {
                         footer={() => (<></>)}
                         destroyOnHidden
                     >
-                        { choosenPost && <PostCommentsList post={ choosenPost } /> }
+                        { 
+                            choosenPost && 
+                                <PostCommentsList
+                                    setPosts={ props.setPosts } 
+                                    post={ choosenPost } 
+                                /> 
+                        }
                     </Modal>
                 }
             </>

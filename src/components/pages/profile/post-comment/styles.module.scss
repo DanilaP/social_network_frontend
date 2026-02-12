@@ -1,4 +1,51 @@
 .postComment {
     display: flex;
     flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.35);
+    border-radius: 10px;
+    padding: 10px;
+
+    .avatarWrapper {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .userAvatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    }   
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .commentFooter {
+        display: flex;
+        justify-content: flex-end;
+
+        .likesWrapper {
+            display: flex;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.626);
+            cursor: pointer;
+            
+            .likesIcon {
+                font-size: 17px;
+                color: white;
+
+                &:hover {
+                    color: red;
+                }
+            }
+
+            .likesIconActive {
+                font-size: 17px;
+                color: red;
+            }
+        }
+    }
 }
