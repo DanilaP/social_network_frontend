@@ -55,7 +55,7 @@ const PostCommentsList = ({ post, setPosts } : IPostCommentsProps) => {
 
     return (
         <div className={ styles.postCommentsListWrapper }>
-            <PostCommentForm post = { post } handleAddComment = { handleAddComment } />
+            <PostCommentForm post = { fetchedPost } handleAddComment = { handleAddComment } />
             {
                 (fetchedPost!.comments.length === 0) 
                     ?
@@ -68,7 +68,7 @@ const PostCommentsList = ({ post, setPosts } : IPostCommentsProps) => {
                             return (
                                 authorizedUserInfo &&
                                     <PostComment 
-                                        postId={ post._id }
+                                        postId={ fetchedPost._id }
                                         user={ authorizedUserInfo }
                                         key={ comment._id } 
                                         comment={ comment } 

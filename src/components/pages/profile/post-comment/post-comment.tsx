@@ -28,8 +28,12 @@ const PostComment = ({ comment, user, postId }: IPostCommentProps) => {
     }
 
     useEffect(() => {
+        setLikesLength(comment.likes.length);
+    }, [comment]);
+
+    useEffect(() => {
         setIsCommentLikedByUser(comment.likes.filter(like => like === user._id).length > 0);
-    }, []);
+    }, [comment]);
 
     return (
         <div className={ styles.postComment }>
