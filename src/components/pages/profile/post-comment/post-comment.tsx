@@ -12,13 +12,15 @@ interface IPostCommentProps {
 
 const PostComment = ({ comment, user, postId }: IPostCommentProps) => {
     
-    const [isPostLikedByUser, setIsPostLikedByUser] = useState<boolean>(false);
-
+    console.log(comment);
+    const [isCommentLikedByUser, setIsCommentLikedByUser] = useState<boolean>(false);
+    const [likesLenght, setLikesLength] = useState<number>(comment.likes.length);
+    
     const handleLikePost = () => {
-        setIsPostLikedByUser(!isPostLikedByUser);
         likeComment(comment._id, postId)
         .then(res => {
-            console.log(res);
+            setIsCommentLikedByUser(!isCommentLikedByUser);
+            setLikesLength(res.data.likesNumber);
         })
         .catch((error) => {
             console.error(error);
@@ -26,7 +28,7 @@ const PostComment = ({ comment, user, postId }: IPostCommentProps) => {
     }
 
     useEffect(() => {
-        setIsPostLikedByUser(comment.likes.filter(like => like.avatar === user.avatar).length > 0);
+        setIsCommentLikedByUser(comment.likes.filter(like => like === user._id).length > 0);
     }, []);
 
     return (
@@ -40,9 +42,9 @@ const PostComment = ({ comment, user, postId }: IPostCommentProps) => {
             </div>
             <div className={ styles.commentFooter }>
                 <div onClick={ handleLikePost } className={ styles.likesWrapper }>
-                    { isPostLikedByUser ? comment.likes.length + 1 : comment.likes.length }
+                    { likesLenght }
                     <IoIosHeart 
-                        className={ isPostLikedByUser ? styles.likesIconActive : styles.likesIcon } 
+                        className={ isCommentLikedByUser ? styles.likesIconActive : styles.likesIcon } 
                     />
                 </div>
             </div>

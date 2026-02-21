@@ -1,15 +1,16 @@
 import { Button, Input } from 'antd';
-import { IComment } from '@/models/posts/model';
+import { createCommentForPost, IComment, IPost } from '@/models/posts/model';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { UserStore } from '@/stores/user-store';
 import styles from './styles.module.scss';
 
 interface IPostCommentForm {
-    handleAddComment: (comment: IComment) => void
+    handleAddComment: (comment: IComment) => void,
+    post: IPost
 }
 
-const PostCommentForm = ({ handleAddComment } : IPostCommentForm) => {
+const PostCommentForm = ({ handleAddComment, post } : IPostCommentForm) => {
 
     const authorizedUserInfo = useSelector((store: UserStore) => store.user);
     const [commentText, setCommentText] = useState<string>("");
@@ -19,7 +20,7 @@ const PostCommentForm = ({ handleAddComment } : IPostCommentForm) => {
     }
 
     const handleAddCommentButtonClick = () => {
-        handleAddComment({
+        const comment = {
             _id: Date.now().toString(),
             user_id: authorizedUserInfo?._id || "",
             avatar: authorizedUserInfo?.avatar || "",
@@ -27,8 +28,15 @@ const PostCommentForm = ({ handleAddComment } : IPostCommentForm) => {
             text: commentText,
             files: [],
             likes: []
+        };
+        createCommentForPost(post._id, commentText)
+        .then((res) => {
+            handleAddComment(comment)
+            console.log(res);
         })
-        console.log(commentText);
+        .catch((error) => {
+            console.error(error);
+        });
     }
 
     return (

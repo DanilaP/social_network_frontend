@@ -25,7 +25,7 @@ export interface IComment {
     name: string,
     text: string,
     files: IFile[],
-    likes: ILike[]
+    likes: ILike[] | string[]
 }
 
 export interface ILike {
@@ -59,8 +59,10 @@ export const getPostById = async (postId: string) => {
     return response;
 }
 
-export const createCommentForPost = async (comment: IComment) => {
-    const response = await $api.post("/post/comment", comment);
+export const createCommentForPost = async (postId: string, text: string) => {
+    const response = await $api.post("/post/comment", {
+        postId, text
+    });
     return response;
 }
 

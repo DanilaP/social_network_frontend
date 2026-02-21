@@ -55,7 +55,7 @@ const PostCommentsList = ({ post, setPosts } : IPostCommentsProps) => {
 
     return (
         <div className={ styles.postCommentsListWrapper }>
-            <PostCommentForm handleAddComment = { handleAddComment } />
+            <PostCommentForm post = { post } handleAddComment = { handleAddComment } />
             {
                 (fetchedPost!.comments.length === 0) 
                     ?
